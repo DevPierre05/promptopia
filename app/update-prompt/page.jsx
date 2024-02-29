@@ -5,15 +5,15 @@ import { useRouter, useSearchParams } from "next/navigation";
 import Form from "@components/Form"
 
 function UpdatePrompt() {
+  const searchParams = useSearchParams();
+  const promptId = searchParams.get("id");
   const [editing , setEditing ] = useState(false);
   const [post, setPost] = useState({
     prompt: "",
     tag: "",
   });
   const router = useRouter();
-
-  const searchParams = useSearchParams();
-  const promptId = searchParams.get("id");
+  
 
   useEffect(() => {
     const getPromptDetails = async () => {
