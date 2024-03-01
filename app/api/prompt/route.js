@@ -5,7 +5,7 @@ export const GET = async (request) => {
   try {
     await connectToDB();
 
-    const prompts = await Prompt.find();
+    const prompts = await Prompt.find().populate("author");
     // const prompts = await Prompt.find({}).populate("author");
 
     return new Response(JSON.stringify(prompts), {status: 200})
